@@ -1,13 +1,12 @@
 package com.example.paymentservicemorningbatch.paymentgateways;
 
 import com.razorpay.PaymentLink;
-import org.json.JSONObject;
-import com.razorpay.Payment;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
-import org.springframework.stereotype.Component;
+import org.json.JSONObject;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class RazorpayPaymentGateway implements PaymentGateway {
     private RazorpayClient razorpayClient;
 
@@ -23,7 +22,7 @@ public class RazorpayPaymentGateway implements PaymentGateway {
         paymentLinkRequest.put("currency","INR");
         //paymentLinkRequest.put("accept_partial",true);
         //paymentLinkRequest.put("first_min_partial_amount",100);
-        paymentLinkRequest.put("expire_by",1707194575);
+        paymentLinkRequest.put("expire_by", 1707194575);
         paymentLinkRequest.put("reference_id","RP123434");
         paymentLinkRequest.put("description","Payment for policy no #23456");
         JSONObject customer = new JSONObject();
